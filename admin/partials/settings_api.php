@@ -23,9 +23,6 @@ if (isset($_POST['submit'])) {
 
     foreach ($settings->api_options as $name => $option) {
         /* checkboxes don't get sent if not checked */
-        if ($option->type === 'checkbox') {
-            $form[$name] = isset($_POST[ $name ]) ? 1 : 0;
-        }
         $value = trim( stripslashes( $form[$name]) );
         $settings->set($name, $value);
     }
@@ -39,13 +36,6 @@ if (isset($_POST['submit'])) {
 ?>
 <div class="notice notice-success is-dismissible">
     <p><?php _e('Options have been reset to default values!', 'eventaservo-api'); ?></p>
-</div>
-<?php
-} elseif (isset($_POST['clear-geocoder-cache'])) {
-    echo "HALLO";
-?>
-<div class="notice notice-success is-dismissible">
-    <p><?php _e('Location caches have been cleared!', 'eventaservo-api'); ?></p>
 </div>
 <?php
 }
@@ -63,11 +53,11 @@ if (isset($_POST['submit'])) {
             <div>
               <div>
                   <label class="label">Your Eventaservo login (email):</label>
-                  <input id="user_mail" name="user_mail" type="email" placeholder="your@mail.here">
+                  <input id="user_mail" name="user_mail" type="email" placeholder="your@mail.here" value="<?php echo htmlspecialchars($settings->get("user_mail")); ?>">
               </div>
               <div>
                 <label class="label">Your Eventaservo API Token:</label>
-                <input id="user_token" name="user_token" type="text" placeholder="Your API key here">
+                <input id="user_token" name="user_token" type="text" placeholder="Your API key here" value="<?php echo htmlspecialchars($settings->get("user_token")); ?>">
               </div>
           </div>
         </div>
@@ -77,15 +67,15 @@ if (isset($_POST['submit'])) {
         <div class="container">
             <div>
                 <label class="label">User event filter:</label>
-                <input id="events_from_user" name="events_from_user" type="text" placeholder="If empty, show events of all users...">
+                <input id="events_from_user" name="events_from_user" type="text" placeholder="If empty, show events of all users..." value="<?php echo htmlspecialchars($settings->get("events_from_user")); ?>">
             </div>
             <div>
                 <label class="label">Start date:</label>
-                <input id="date_start" name="date_start" type="date" placeholder="today">
+                <input id="date_start" name="date_start" type="date" placeholder="today" value="<?php echo htmlspecialchars($settings->get("date_start")); ?>">
             </div>
             <div>
                 <label class="label">End date:</label>
-                <input id="date_end" name="date_end" type="date" placeholder="today + 1 year">
+                <input id="date_end" name="date_end" type="date" placeholder="today + 1 year" value="<?php echo htmlspecialchars($settings->get("date_end")); ?>">
             </div>
         </div>
     <div class="submit">
@@ -99,11 +89,6 @@ if (isset($_POST['submit'])) {
             id="reset"
             class="button button-secondary"
             value="<?php _e('Reset to Defaults', 'eventaservo-api'); ?>">
-        <input type="submit"
-            name="clear-geocoder-cache"
-            id="clear-geocoder-cache"
-            class="button button-secondary"
-            value="<?php _e('Clear Geocoder Cache', 'eventaservo-api'); ?>">
     </div>
 
     </form>

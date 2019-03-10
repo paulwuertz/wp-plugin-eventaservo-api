@@ -1,0 +1,28 @@
+{
+  "name": "eventaservo-api",
+  "version": "1.0.0",
+  "description": "=== Eventaservo API === Contributors: paulwuertz Donate link: http://www.p4w5.eu/blog/ Tags: comments, api, eventaservo Requires at least: 3.0.1 Tested up to: 3.4 Stable tag: 4.3 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
+  "main": "index.js",
+  "dependencies": {
+    "fullcalendar": "^3.10.0",
+    "jquery": "^3.3.1",
+    "leaflet": "^1.3.1",
+    "leaflet.markercluster": "^1.4.1",
+    "moment": "^2.24.0",
+    "prunecluster": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulwuertz/wp-plugin-eventaservo-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulwuertz/wp-plugin-eventaservo-api/issues"
+  },
+  "homepage": "https://github.com/paulwuertz/wp-plugin-eventaservo-api#readme"
+}
